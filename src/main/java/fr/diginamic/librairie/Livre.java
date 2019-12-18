@@ -1,8 +1,13 @@
 package fr.diginamic.librairie;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,11 +15,11 @@ import javax.persistence.Table;
 public class Livre {
 	@Id
 	private int id;
-	
-	@Column(name="titre",length=255)
+
+	@Column(name = "titre", length = 255)
 	private String titre;
-	
-	@Column(name="auteur",length=50)
+
+	@Column(name = "auteur", length = 50)
 	private String auteur;
 
 	/**
@@ -22,7 +27,13 @@ public class Livre {
 	 */
 	public Livre() {
 	}
-
+	
+	@ManyToMany
+	@JoinTable(name="compo",
+			joinColumns=@JoinColumn(name="ID_Liv", referencedColumnName="ID"),
+			inverseJoinColumns = @JoinColumn(name="ID_Emp", referencedColumnName="ID")
+	)
+	private Set<Emprunt> emprunt;
 	/**
 	 * @return the id
 	 */
@@ -31,7 +42,8 @@ public class Livre {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -45,7 +57,8 @@ public class Livre {
 	}
 
 	/**
-	 * @param titre the titre to set
+	 * @param titre
+	 *            the titre to set
 	 */
 	public void setTitre(String titre) {
 		this.titre = titre;
@@ -59,11 +72,25 @@ public class Livre {
 	}
 
 	/**
-	 * @param auteur the auteur to set
+	 * @param auteur
+	 *            the auteur to set
 	 */
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
-	
-	
+
+	/**
+	 * @return the emprunt
+	 */
+	public Set<Emprunt> getEmprunt() {
+		return emprunt;
+	}
+
+	/**
+	 * @param emprunt the emprunt to set
+	 */
+	public void setEmprunt(Set<Emprunt> emprunt) {
+		this.emprunt = emprunt;
+	}
+
 }

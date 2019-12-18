@@ -18,7 +18,11 @@ public class TestJpa {
 		if(f!=null){
 			int fId = f.getId();
 			String fNom = f.getNom();
+<<<<<<< HEAD
 			System.out.println(fId+ fNom);
+=======
+			System.out.println(fId+" "+fNom);
+>>>>>>> TP 2
 		}
 		em.close();
 		entityManagerFactory.close();

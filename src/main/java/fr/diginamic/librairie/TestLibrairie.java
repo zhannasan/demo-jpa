@@ -30,11 +30,11 @@ public class TestLibrairie {
 			System.out.println("\r"+liv.getTitre() + " " + liv.getAuteur()+"\r");
 		}
 
-		TypedQuery<Emprunt> queryClient = em.createQuery("SELECT a FROM Emprunt a WHERE a.client.id =1", Emprunt.class);
-		Emprunt empruntClient = queryClient.getResultList().get(0);
-		Set<Livre> livresClient = empruntClient.getLivres();
+		TypedQuery<Emprunt> queryClientL = em.createQuery("SELECT a FROM Emprunt a WHERE a.client.id =1", Emprunt.class);
+		Emprunt empruntClientL = queryClientL.getResultList().get(0);
+		Set<Livre> livresClientL = empruntClientL.getLivres();
 	
-		for (Livre liv : livresClient) {
+		for (Livre liv : livresClientL) {
 			System.out.println("\r"+liv.getTitre() + " " + liv.getAuteur());
 		}
 

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -27,9 +28,9 @@ public class Emprunt {
 	@Column(name="date_fin")
 	private LocalDate dateFin;
 	
-	@ManyToOne
-	@JoinColumn(name="ID_Client")
-	private Client client;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_ClientL")
+	private ClientL client;
 	
 	@ManyToMany
 	@JoinTable(name="compo",
@@ -103,14 +104,14 @@ public class Emprunt {
 	/**
 	 * @return the client
 	 */
-	public Client getClient() {
+	public ClientL getClientL() {
 		return client;
 	}
 
 	/**
 	 * @param client the client to set
 	 */
-	public void setClient(Client client) {
+	public void setClientL(ClientL client) {
 		this.client = client;
 	}
 

@@ -13,8 +13,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "client")
-public class Client {
+@Table(name = "clientL")
+public class ClientL {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
@@ -25,14 +25,14 @@ public class Client {
 	@Column(name = "PRENOM", length = 50, nullable = false)
 	private String prenom;
 	
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="clientL")
 	private Set<Emprunt> emprunt;
 	
 	
 	/**
 	 * 
 	 */
-	public Client() {
+	public ClientL() {
 		emprunt = new HashSet<Emprunt>();
 	}
 

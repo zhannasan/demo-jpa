@@ -2,9 +2,12 @@ package fr.diginamic.banque.entites;
 
 import javax.persistence.Embeddable;
 
-/**  
+/**
+ * Adresse postale du client (Client) avec des paramètres : numero (int) - numéro de
+ * la rue; rue (String) - rue codePostal - code postal, ville (String) - ville
+ * Embeddable dans Client.
  * @author janka
- *  Adresse postale du client
+ * 
  */
 @Embeddable
 public class Adresse {
@@ -16,10 +19,11 @@ public class Adresse {
 		
 	}
 	/**
-	 * @param numero
-	 * @param rue
-	 * @param codePostal
-	 * @param ville
+	 * Constructeur Adresse avec des paramètres :
+	 * @param numero - numéro de la rue
+	 * @param rue - rue
+	 * @param codePostal - code postal
+	 * @param ville - ville
 	 */
 	public Adresse(int numero, String rue, int codePostal, String ville) {
 		super();

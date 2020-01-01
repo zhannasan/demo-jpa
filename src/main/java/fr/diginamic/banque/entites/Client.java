@@ -25,7 +25,7 @@ import javax.persistence.Table;
  * nom (String) - nom d'un client;
  * prenom (String) - prénom d'un client;
  * dateNaissance (LocalDate) - date de naissance d'un client;
- * adresse (Adresse) - embeded adresse d'un client;
+ * adresse (Adresse) - embedded adresse d'un client;
  * Définit une rélation Many-to-One avec une banque (Banque) et
  * une rélation Many-to-Many avec une compte (Comptes).
  * Contient un constructeur sans paramètres, getters et setters appropriés.
